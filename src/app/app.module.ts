@@ -1,9 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {TodoService} from "./services/todo.service";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -12,9 +13,14 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    TodoService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
