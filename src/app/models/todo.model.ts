@@ -2,12 +2,12 @@ export default class ToDo {
   _id: string;
   title: string;
   description: string;
-  date: Date;
+  date: string;
   status: string;
 
   constructor(title: string = '',
               description: string = '',
-              date: Date = new Date(),
+              date: string = '',
               status: string = '') {
     this.title = title;
     this.description = description;
@@ -15,8 +15,8 @@ export default class ToDo {
     this.status = status;
   }
 
-  static createFromArray(responses: any): Array<ToDo> {
-    const responses = responses.data.docs;
+  static createFromArray(responseBody: any): Array<ToDo> {
+    const responses = responseBody.data.docs;
     return responses.map((response) => {
       return ToDo.createFromResponse(response);
     });
